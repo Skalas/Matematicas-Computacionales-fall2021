@@ -1,4 +1,4 @@
-# Carta de presentación
+Carta de presentación
 
 Nombre: Sebastian Ibarra del Corral
 Correo: sebastianidelc@gmail.com
