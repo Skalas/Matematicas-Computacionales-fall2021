@@ -296,8 +296,8 @@ click en `Pull Requests` y sigue las instrucciones de la pantalla.
 Una vez **autorizado** el `pull-request` es necesario hacer
 
 ```
-➜ git pull repo-clase master
-➜ git push origin master
+➜ git pull repo-clase main
+➜ git push origin main
 ```
 
 La primera instrucción baja los cambios del repositorio central, el
@@ -307,8 +307,8 @@ Para responder la segunda respuesta usamos la misma cadena de
 comandos:
 
 ```
-➜ git pull repo-clase master
-➜ git push origin master
+➜ git pull repo-clase main
+➜ git push origin main
 ```
 
 Nota que ahora no realizamos un `pull-request`.
@@ -321,7 +321,8 @@ y:
 
 ```
 ➜ cd Matematicas-computacionales-fall2021
-➜ git pull origin master
+➜ git pull origin main
+➜ git pull repo-clase main
 ```
 
 trabajas en varios archivos
@@ -336,7 +337,7 @@ Y conforme avances
 ➜ git status
 ➜ git add <archivos modificados o nuevos>
 ➜ git commit -m "<comentario acerca de que fue lo que se cambió>"
-➜ git push origin master
+➜ git push origin main
 ➜ git status
 ```
 
@@ -349,7 +350,7 @@ Todo estará bien si
 Make sure the status says
 
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is up-to-date with 'origin/main'.
 
 nothing to commit, working directory clean
 ```
