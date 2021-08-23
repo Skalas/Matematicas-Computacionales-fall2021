@@ -79,12 +79,13 @@ manipulación del `file system`.
 root@6ddfd57cc4ec:/#
 ```
 - Teclea `whoami` y luego presiona *enter*. Este comando te dice que
-usuario eres. Observa que el usuario actual es `root`. Este usuario es
-un **superusuario**, el tiene poderes para modificar todo, obvio, esto
+usuario eres. Observa que el usuario actual es `jovyan`.
+
+Existe un usuario que se llama  `root` un **superusuario**,
+el tiene poderes para modificar todo, obvio, esto
 es peligroso, por lo que será mejor cambiar de usuario, en particular
 al usuario `jovyan`.
 
-- Teclea `su jovyan`. ¿Qué pasó?
 - Comprueba que eres el usuario `jovyan` ¿Cómo le podrías hacer?
 - Para saber donde estamos en el `file system` usamos `pwd` (de
   *printing working directory*).
