@@ -79,12 +79,13 @@ manipulación del `file system`.
 root@6ddfd57cc4ec:/#
 ```
 - Teclea `whoami` y luego presiona *enter*. Este comando te dice que
-usuario eres. Observa que el usuario actual es `root`. Este usuario es
-un **superusuario**, el tiene poderes para modificar todo, obvio, esto
+usuario eres. Observa que el usuario actual es `jovyan`.
+
+Existe un usuario que se llama  `root` un **superusuario**,
+el tiene poderes para modificar todo, obvio, esto
 es peligroso, por lo que será mejor cambiar de usuario, en particular
 al usuario `jovyan`.
 
-- Teclea `su jovyan`. ¿Qué pasó?
 - Comprueba que eres el usuario `jovyan` ¿Cómo le podrías hacer?
 - Para saber donde estamos en el `file system` usamos `pwd` (de
   *printing working directory*).
@@ -247,3 +248,15 @@ Con estos ejercicios deberías de ser capaz de manejar los básicos del
 [esto](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet).
 
 Además, en tu `docker` el `zsh` viene recargado con `oh-my-zsh`.
+
+Para cambiar el tema de tu `zsh` edita el archivo `~/.zshrc` y
+cambia la variable
+```
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussel"
+```
+
+Por el tema que se te antoje poner. (de [esta](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes) lista)
