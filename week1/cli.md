@@ -248,3 +248,15 @@ Con estos ejercicios deberías de ser capaz de manejar los básicos del
 [esto](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet).
 
 Además, en tu `docker` el `zsh` viene recargado con `oh-my-zsh`.
+
+Para cambiar el tema de tu `zsh` edita el archivo `~/.zshrc` y
+cambia la variable
+```
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussel"
+```
+
+Por el tema que se te antoje poner. (de [esta](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes) lista)
