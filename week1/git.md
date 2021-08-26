@@ -59,7 +59,7 @@ Podemos verificar que todo esté bien, con el comando `status`.
 
 ```
 ➜  git status
-On branch master
+On branch main
 
 Initial commit
 
@@ -233,13 +233,13 @@ agrégalo, verifica los cambios, has `commit`. El siguiente paso es
 **subir** los cambios al repositorio de github. Para hacerlo hacemos
 
 ```
-➜ git push origin master
+➜ git push origin main
 ```
 (Probablemente te pida tu usuario de github y contraseña.)
 
 El verbo `push` es el encargado de la acción de subir los
 cambios. `origin` se refiere al repositorio del cual clonamos la copia
-local (en nuestra computadora) y `master` se refiere al `branch` (este
+local (en nuestra computadora) y `main` se refiere al `branch` (este
 es un tema avanzado).
 
 Abre tu repositorio en github y observa que tus cambios ahí
@@ -253,7 +253,7 @@ En tu computadora, en `docker` en la carpeta
 `Matematicas-computacionales-fall2021`, para obtener los últimos cambios utiliza:
 
 ```
-➜ git pull origin master
+➜ git pull origin main
 ```
 
 En tu carpeta debería de aparecer el archivo `prueba.txt`. Ahora
@@ -296,8 +296,8 @@ click en `Pull Requests` y sigue las instrucciones de la pantalla.
 Una vez **autorizado** el `pull-request` es necesario hacer
 
 ```
-➜ git pull repo-clase master
-➜ git push origin master
+➜ git pull repo-clase main
+➜ git push origin main
 ```
 
 La primera instrucción baja los cambios del repositorio central, el
@@ -307,8 +307,8 @@ Para responder la segunda respuesta usamos la misma cadena de
 comandos:
 
 ```
-➜ git pull repo-clase master
-➜ git push origin master
+➜ git pull repo-clase main
+➜ git push origin main
 ```
 
 Nota que ahora no realizamos un `pull-request`.
@@ -321,7 +321,8 @@ y:
 
 ```
 ➜ cd Matematicas-computacionales-fall2021
-➜ git pull origin master
+➜ git pull origin main
+➜ git pull repo-clase main
 ```
 
 trabajas en varios archivos
@@ -336,7 +337,7 @@ Y conforme avances
 ➜ git status
 ➜ git add <archivos modificados o nuevos>
 ➜ git commit -m "<comentario acerca de que fue lo que se cambió>"
-➜ git push origin master
+➜ git push origin main
 ➜ git status
 ```
 
@@ -348,8 +349,8 @@ Todo estará bien si
 ```
 Make sure the status says
 
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 
 nothing to commit, working directory clean
 ```
