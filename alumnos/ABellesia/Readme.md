@@ -1,5 +1,5 @@
 # Carta de presentación
 * **Nombre**: Andrea Bellesia Álvarez de la Cuadra
-* **Correo**: abellesi@itam.ms
+* **Correo**: abellesi@itam.mx
 * **CU**: 188642
-* Nombre preferido: Andy
+* **Nombre preferido**: Andy
