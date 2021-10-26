@@ -1,4 +1,3 @@
-
 class Pendulo:
     
     def __init__(self, masa, longitud, gravedad):
@@ -52,9 +51,4 @@ class Pendulo:
         self.trajectory[0,1] = self.omega_i
         
         for j in range(N-1):
-            self.trajectory[j+1] = method(self.trajectory[j], self.tau[j], self.dt, self.dynamics)  
-            
-    def diagrama(self):
-        plt.plot(self.theta(),self.omega())
-        plt.xlabel("Theta (rads)")
-        plt.ylabel("Omega(rad/s)")
+            self.trajectory[j+1] = method(self.trajectory[j], self.tau[j], self.dt, self.dynamics)        
