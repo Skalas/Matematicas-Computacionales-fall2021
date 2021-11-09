@@ -191,20 +191,77 @@ last statement in BODY, as elisp."
 
     #+RESULTS:
     #+begin_src org
-    Error in match.arg(method) : object 'day' not found
+    # A tibble: 922 x 19
+        year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+       <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
+     1  2013    10    31      458            500        -2      638            651
+     2  2013    10    31      513            517        -4      824            757
+     3  2013    10    31      542            545        -3      818            855
+     4  2013    10    31      543            545        -2      852            827
+     5  2013    10    31      550            600       -10      824            854
+     6  2013    10    31      552            600        -8      703            659
+     7  2013    10    31      553            600        -7      649            701
+     8  2013    10    31      553            600        -7      925            943
+     9  2013    10    31      554            600        -6      713            711
+    10  2013    10    31      554            600        -6      834            856
+    # … with 912 more rows, and 11 more variables: arr_delay <dbl>, carrier <chr>,
+    #   flight <int>, tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>,
+    #   distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
     #+end_src
 
 
 *** ~slice~
     Filtra y selecciona en función del número de renglón. 
     #+BEGIN_SRC R 
-    slice(flights, 1:10)
+    slice(flights, 200000:200010)
     #+END_SRC
+
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 11 x 19
+        year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+       <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
+     1  2013     5     8      631            605        26      816            800
+     2  2013     5     8      631            635        -4      743            812
+     3  2013     5     8      632            635        -3      821            844
+     4  2013     5     8      632            630         2      851            913
+     5  2013     5     8      635            640        -5     1044           1040
+     6  2013     5     8      636            640        -4      749            806
+     7  2013     5     8      638            640        -2      836            851
+     8  2013     5     8      639            640        -1      749            756
+     9  2013     5     8      639            645        -6      853            841
+    10  2013     5     8      640            642        -2      821            909
+    11  2013     5     8      641            647        -6      748            759
+    # … with 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
+    #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
+    #   hour <dbl>, minute <dbl>, time_hour <dttm>
+    #+end_src
+
 *** ~arrange~
     Ordena los renglones del data frame en función de distintas variables a elegir. 
     #+BEGIN_SRC R
-    arrange(flights, year, desc(month), day)
+    arrange(flights, desc(arr_delay))
     #+END_SRC
+
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 336,776 x 19
+        year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+       <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
+     1  2013     1     9      641            900      1301     1242           1530
+     2  2013     6    15     1432           1935      1137     1607           2120
+     3  2013     1    10     1121           1635      1126     1239           1810
+     4  2013     9    20     1139           1845      1014     1457           2210
+     5  2013     7    22      845           1600      1005     1044           1815
+     6  2013     4    10     1100           1900       960     1342           2211
+     7  2013     3    17     2321            810       911      135           1020
+     8  2013     7    22     2257            759       898      121           1026
+     9  2013    12     5      756           1700       896     1058           2020
+    10  2013     5     3     1133           2055       878     1250           2215
+    # … with 336,766 more rows, and 11 more variables: arr_delay <dbl>,
+    #   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+    #   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    #+end_src
 
 *** ~select~
     Selecciona columnas de un data frame, para quedarnos con un subconjunto de las mismas (como en un select de SQL)
@@ -213,16 +270,71 @@ last statement in BODY, as elisp."
     select(flights, year, month, day, carrier, origin, dest)
     #+END_SRC
 
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 336,776 x 6
+        year month   day carrier origin dest
+       <int> <int> <int> <chr>   <chr>  <chr>
+     1  2013     1     1 UA      EWR    IAH
+     2  2013     1     1 UA      LGA    IAH
+     3  2013     1     1 AA      JFK    MIA
+     4  2013     1     1 B6      JFK    BQN
+     5  2013     1     1 DL      LGA    ATL
+     6  2013     1     1 UA      EWR    ORD
+     7  2013     1     1 B6      EWR    FLL
+     8  2013     1     1 EV      LGA    IAD
+     9  2013     1     1 B6      JFK    MCO
+    10  2013     1     1 AA      LGA    ORD
+    # … with 336,766 more rows
+    #+end_src
+
 *** ~select~
     #+BEGIN_SRC R
     select(flights, year:day)
     #+END_SRC
 
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 336,776 x 3
+        year month   day
+       <int> <int> <int>
+     1  2013     1     1
+     2  2013     1     1
+     3  2013     1     1
+     4  2013     1     1
+     5  2013     1     1
+     6  2013     1     1
+     7  2013     1     1
+     8  2013     1     1
+     9  2013     1     1
+    10  2013     1     1
+    # … with 336,766 more rows
+    #+end_src
+
 *** ~select~
     #+BEGIN_SRC R
-    select(flights, -year)
+    select(flights, contains('time'))
     #+END_SRC
-    Se pueden usar funciones para /matchear/ como ~contains()~, ~starts_with()~, etc. 
+
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 336,776 x 6
+       dep_time sched_dep_time arr_time sched_arr_time air_time time_hour
+          <int>          <int>    <int>          <int>    <dbl> <dttm>
+     1      517            515      830            819      227 2013-01-01 05:00:00
+     2      533            529      850            830      227 2013-01-01 05:00:00
+     3      542            540      923            850      160 2013-01-01 05:00:00
+     4      544            545     1004           1022      183 2013-01-01 05:00:00
+     5      554            600      812            837      116 2013-01-01 06:00:00
+     6      554            558      740            728      150 2013-01-01 05:00:00
+     7      555            600      913            854      158 2013-01-01 06:00:00
+     8      557            600      709            723       53 2013-01-01 06:00:00
+     9      557            600      838            846      140 2013-01-01 06:00:00
+    10      558            600      753            745      138 2013-01-01 06:00:00
+    # … with 336,766 more rows
+    #+end_src
+
+    Se pueden usar funciones para /matchear/ como ~contains()~, ~starts_with()~, etc.
     También se pueden renombrar variables en el proceso. 
 *** ~rename~
     La manera más limpia de renombrar variables. 
@@ -257,61 +369,124 @@ last statement in BODY, as elisp."
     distinct(select(flights, origin, dest))
     #+END_SRC
 
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 224 x 2
+       origin dest
+       <chr>  <chr>
+     1 EWR    IAH
+     2 LGA    IAH
+     3 JFK    MIA
+     4 JFK    BQN
+     5 LGA    ATL
+     6 EWR    ORD
+     7 EWR    FLL
+     8 LGA    IAD
+     9 JFK    MCO
+    10 LGA    ORD
+    # … with 214 more rows
+    #+end_src
+
+f(g(h(i(x))))
 *** ~mutate~
     Genera nuevas variables, se pueden usar el resto de los renglones para crear nuevas variables:
     #+BEGIN_SRC R
-    flights %>%
-    mutate(
-    speed=distance/ air_time * 60, 
-    speed2 = speed*2
-    )
-    #+END_SRC
+      flights %>%
+        mutate(
+          speed = distance / air_time * 60,
+          speed2 = speed*2
+        )
+  #+END_SRC
+
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 336,776 x 21
+        year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+       <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
+     1  2013     1     1      517            515         2      830            819
+     2  2013     1     1      533            529         4      850            830
+     3  2013     1     1      542            540         2      923            850
+     4  2013     1     1      544            545        -1     1004           1022
+     5  2013     1     1      554            600        -6      812            837
+     6  2013     1     1      554            558        -4      740            728
+     7  2013     1     1      555            600        -5      913            854
+     8  2013     1     1      557            600        -3      709            723
+     9  2013     1     1      557            600        -3      838            846
+    10  2013     1     1      558            600        -2      753            745
+    # … with 336,766 more rows, and 13 more variables: arr_delay <dbl>,
+    #   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+    #   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>,
+    #   speed <dbl>, speed2 <dbl>
+    #+end_src
+
 
 *** ~sumarize~
-    Sirve para aplicar funciones a los renglones de la base de datos, particularmente útil con =group_by= para agrupaciones.
+Sirve para aplicar funciones a los renglones de la base de datos, particularmente útil con =group_by= para agrupaciones.
     #+BEGIN_SRC R
-    summarise(flights,
-    delay = mean(dep_delay, na.rm = TRUE))
+      summarise(
+        flights,
+        delay = mean(dep_delay, na.rm = TRUE))
+
     #+END_SRC
 
     #+RESULTS:
-    #+BEGIN_SRC org
+    #+begin_src org
     # A tibble: 1 x 1
-	 delay
-	 <dbl>
-    1 12.63907
-    #+END_SRC
+      delay
+      <dbl>
+    1  12.6
+    #+end_src
 
 * Agrupaciones 
 *** Group by 
 Los verbos por si solos ya responden preguntas, sin embargo si los juntamos con agrupaciones puede llegar a ser bastante interesante. 
     #+BEGIN_SRC R
-    flights %>% 
-    group_by(month, day) %>%
-    summarise(delay = mean(dep_delay, na.rm = TRUE)) %>% 
-    arrange(desc(delay))
+      flights %>%
+        group_by(month, day, origin) %>%
+        summarise(delay = mean(dep_delay, na.rm = TRUE)) %>%
+        arrange(desc(delay))
     #+END_SRC
 
     #+RESULTS:
-    #+BEGIN_SRC org
-    Source: local data frame [365 x 3]
-    Groups: month [12]
-
-       month   day    delay
-       <int> <int>    <dbl>
-    1      3     8 83.53692
-    2      7     1 56.23383
-    3      9     2 53.02955
-    4      7    10 52.86070
-    5     12     5 52.32799
-    6      5    23 51.14472
-    7      9    12 49.95875
-    8      6    28 48.82778
-    9      6    24 47.15742
-    10     7    22 46.66705
-    # ... with 355 more rows
+    #+begin_src org
+    `summarise()` has grouped output by 'month', 'day'. You can override using the `.groups` argument.
+    # A tibble: 1,095 x 4
+    # Groups:   month, day [365]
+       month   day origin delay
+       <int> <int> <chr>  <dbl>
+     1     3     8 LGA    106.
+     2     3     8 EWR     97.8
+     3     9     2 LGA     80.5
+     4    12     5 LGA     75.2
+     5     7    10 JFK     63.6
+     6     7     1 LGA     62.4
+     7    12     5 EWR     61.2
+     8     7     1 JFK     59.6
+     9     9    12 EWR     58.7
+    10     5    23 EWR     58.2
+    # … with 1,085 more rows
+    #+end_src
+    #+BEGIN_SRC R
+      flights %>%
+        group_by(origin) %>%
+        summarise(
+          n = n(),
+          avg_delay = mean(dep_delay, na.rm=TRUE),
+          var_delay = var(dep_delay, na.rm=TRUE)
+        )
     #+END_SRC
-*** Preguntas:
+
+    #+RESULTS:
+    #+begin_src org
+    # A tibble: 3 x 4
+      origin      n avg_delay var_delay
+      <chr>   <int>     <dbl>     <dbl>
+    1 EWR    120835      15.1     1708.
+    2 JFK    111279      12.1     1524.
+    3 LGA    104662      10.3     1599.
+    #+end_src
+
+1** Preguntas:
 - ¿Hay algún día de la semana que sea considerablemente mejor para volar?
 - ¿Hay alguna aerolínea que tenga algún problema a nivel mes?
 - ¿Hay algún avión problemático?
