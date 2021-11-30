@@ -15,7 +15,7 @@
 
 * Instrucciones
 Genera una libreta de Jupyter Notebook dentro de tu carpeta en =alumnos= , con los ejercicios que se piden en las clases:
-- 2-Chaos
+- 1-Chaos
 - 3-Fractales
 
 * Fecha de Entrega
