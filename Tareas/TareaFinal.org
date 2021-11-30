@@ -1,0 +1,22 @@
+#+TITLE: Tarea Final Matemáticas Computacionales
+#+AUTHOR: Miguel Angel Escalante Serrato
+#+EMAIL:  miguel.escalante@itam.mx
+#+DATE: 8-Oct-2020
+
+#+LANGUAGE:  es
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: moon
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_TRANS: cube
+#+REVEAL_SLIDE_NUMBER: t
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Matemáticas Computacionales">
+#+PROPERTY: header-args:R  :session *R*  :results output org :exports both :eval yes
+
+
+* Instrucciones
+Genera una libreta de Jupyter Notebook dentro de tu carpeta en =alumnos= , con los ejercicios que se piden en las clases:
+- 2-Chaos
+- 3-Fractales
+
+* Fecha de Entrega
+Se entrega el último día de clases, 1-dic-2021
